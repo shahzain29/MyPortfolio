@@ -6,21 +6,30 @@ import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
-    id: 7,
+    id: 1,
     title: "Huzzle",
-    description: "Project 1 description",
+    description: "Career finding Application",
     image: "/images/projects/huzzle.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Mobile"],
     gitUrl: "/",
     previewUrl: "/",
   },
 
   {
-    id: 1,
+    id: 2,
     title: "Nox-Sky",
-    description: "Project 1 description",
+    description: "Social App for Astrophotographers",
     image: "/images/projects/NoxSky.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Mobile"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 3,
+    title: "Wellness Determination using Medical and Environmental Info",
+    description: "Machine Learning combined with environmental and medical information",
+    image: "/images/projects/Ai.png",
+    tag: ["All", "AI"],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -114,6 +123,11 @@ const ProjectsSection = () => {
           name="Mobile"
           isSelected={tag === "Mobile"}
         />
+          <ProjectTag
+          onClick={handleTagChange}
+          name="AI"
+          isSelected={tag === "AI"}
+        />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (
@@ -131,6 +145,7 @@ const ProjectsSection = () => {
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
+              type={project.type}
             />
           </motion.li>
         ))}

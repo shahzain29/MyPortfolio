@@ -5,15 +5,34 @@ import TabButton from "./TabButton";
 import { motion, useInView } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
+const skills = [
+  'React Native',
+  'ReactJs',
+  'NextJs',
+  'JavaScript',
+  'TypeScript',
+  'Java',
+  'C++',
+  'Python',
+  'Tailwind CSS',
+  'CSS',
+  'Matlab',
+  'Firebase',
+  'SQL'
+]
 
+const education = [
+  { degree: 'MSc Computer Science', uni: 'University of East London', year: '2023-2024' },
+  { degree: 'BSc Computer Science', uni: 'Comsats university Islamabad', year: '2017-2021' }]
 
-const skills = ['React Native', 'React','React','React','React', 'NextJs','NextJs','NextJs']
-
-const education=[
-  {degree:'MSc Computer Science', uni:'University of East London' ,year:'2023-2024'}, 
-  {degree:'BSc Computer Science', uni:'Comsats university Islamabad',year:'2017-2021'}]
-
-  const certifications=[]
+const certifications = [
+  { name: 'Modern JavaScript: ES6 Basics', link: "https://www.coursera.org/account/accomplishments/verify/Y5YVE4FFU3PH" },
+  { name: 'React - Working with Higher Order Components', link: 'https://www.coursera.org/account/accomplishments/certificate/SFU454AAE6KH' },
+  { name: 'MATLAB OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=3039b51e-3a3b-4e8b-a1ec-6562972b7952&' },
+  { name: 'Image Processing OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=b694b7f3-b076-47a5-ac63-bf09b06db624&' },
+  { name: 'Machine Learning OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=8a641171-34a9-40e0-8a5e-8841d4f58487&' },
+  { name: 'Deep Learning OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=eb0c437d-d83a-460b-a4bf-eac5d4c23a3c&' }
+]
 
 
 const animateVariant = {
@@ -27,7 +46,7 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <div className="flex flex-row flex-wrap w-fit" >
-        {skills.map((item,index) => {
+        {skills.map((item, index) => {
           return (
             <motion.div
               key={index}
@@ -40,7 +59,7 @@ const TAB_DATA = [
             </motion.div>
           )
         })}
-        </div>
+      </div>
     ),
   },
   {
@@ -48,7 +67,7 @@ const TAB_DATA = [
     id: "education",
     content: (
       <div>
-        {education.map((item,index) => {
+        {education.map((item, index) => {
           return (
             <motion.div
               key={index}
@@ -58,24 +77,31 @@ const TAB_DATA = [
               transition={{ duration: 0.5, delay: index * 0.4 }}
             >
               <li className="text-black font-bold">
-                {item.degree}   
-                  <p className="ml-5 font-normal">{item.uni}</p>
-                  <p className="ml-5 font-normal">{item.year}</p>
+                {item.degree}
+                <p className="ml-5 font-normal">{item.uni}</p>
+                <p className="ml-5 font-normal">{item.year}</p>
               </li>
             </motion.div>
           )
         })}
-        </div>
+      </div>
     ),
   },
   {
     title: "Certifications",
     id: "certifications",
     content: (
-      <ul className="list-disc pl-2 text-white">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
-      </ul>
+      <div>
+        {certifications.map((item, index) => {
+          return (
+            <div key={index}>
+              <li className="text-black font-semibold">
+               <a href={item.link} className='hover:underline'>{item.name}</a>
+              </li>
+            </div>
+          )
+        })}
+      </div>
     ),
   },
 ];
@@ -115,10 +141,9 @@ const AboutSection = () => {
           >
             <p className="text-base lg:text-lg text-black">
               Highly skilled software developer with a 1st class honours in MSc Computer Science from University of
-              East London and worked in 2 App Development roles. Throughout my work years I specialized in
+              East London and worked in 2 Software Development roles. Throughout my work years I specialized in
               Hybrid Mobile Application development using React Native but proficient in many other frameworks
-              and languages. I am looking for Mobile Application developer/Front End Developer roles. I have the
-              right to work in the UK.
+              and languages.
 
             </p>
           </motion.div>
@@ -146,10 +171,10 @@ const AboutSection = () => {
             </TabButton>
           </div>
           {isInView &&
-          <div ref ={ref} className="mt-8 w-fit max-w-xl">
-            {TAB_DATA.find((t) => t.id === tab).content}
-          </div>
-}
+            <div ref={ref} className="mt-8 w-fit max-w-xl">
+              {TAB_DATA.find((t) => t.id === tab).content}
+            </div>
+          }
         </div>
       </div>
     </section>

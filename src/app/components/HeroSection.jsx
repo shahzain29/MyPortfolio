@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-16 ">
+    <section className="lg:py-16 lg:px-12 mb-10">
       
       <div className="grid sm:grid-cols-12  ">
         <motion.div
@@ -17,7 +17,7 @@ const HeroSection = () => {
           className="col-span-10 place-self-center text-center sm:text-left justify-self-start"
         >
           <div className='flex-row'>
-          <h1 className="mb-4 lg:text-8xl lg:leading-normal font-extrabold" >
+          <h1 className="mb-4 lg:text-8xl md:text-4xl lg:leading-normal font-extrabold" >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#187ee4] to-[#70a8d8] mb-1">
               Hello, I&apos;m{" "}
             </span>
@@ -28,7 +28,7 @@ const HeroSection = () => {
                 1000,
                 "Software Developer",
                 1000,
-                "Hybrid Mobile Developer",
+                "Mobile Developer",
                 1000,
                 "Front End Developer",
                 1000,
@@ -42,9 +42,9 @@ const HeroSection = () => {
             />
           </h1>
           </div>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
+          {/* <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
           This is about me asdassadasdasdasdds
-          </p>
+          </p> */}
           <div>
             <Link
               href="/#contact"
@@ -53,7 +53,7 @@ const HeroSection = () => {
               Hire Me
             </Link>
                <Link
-              href="/#contact"
+              href="/ShahzainCvrn.pdf"
               className="px-6 inline-block py-3 w-100 sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#187ee4] to-[#a1bed8] hover:bg-slate-200 text-white"
             >
               My CV
