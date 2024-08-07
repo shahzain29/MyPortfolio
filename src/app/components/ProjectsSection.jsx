@@ -12,7 +12,7 @@ const projectsData = [
     image: "/images/projects/huzzle.png",
     tag: ["All", "Mobile"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://apps.apple.com/gb/app/huzzle-student-careers/id1558715481",
   },
 
   {
@@ -22,7 +22,7 @@ const projectsData = [
     image: "/images/projects/NoxSky.png",
     tag: ["All", "Mobile"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://apps.apple.com/us/app/nox-sky/id1594848791",
   },
   {
     id: 3,
@@ -30,54 +30,18 @@ const projectsData = [
     description: "Machine Learning combined with environmental and medical information",
     image: "/images/projects/Ai.png",
     tag: ["All", "AI"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/shahzain29/NearestNeighbour",
     previewUrl: "/",
   },
-  // {
-  //   id: 2,
-  //   title: "Potography Portfolio Website",
-  //   description: "Project 2 description",
-  //   image: "/images/projects/2.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 3,
-  //   title: "E-commerce Application",
-  //   description: "Project 3 description",
-  //   image: "/images/projects/3.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Food Ordering Application",
-  //   description: "Project 4 description",
-  //   image: "/images/projects/4.png",
-  //   tag: ["All", "Mobile"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 5,
-  //   title: "React Firebase Template",
-  //   description: "Authentication and CRUD operations",
-  //   image: "/images/projects/5.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Full-stack Roadmap",
-  //   description: "Project 5 description",
-  //   image: "/images/projects/6.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
+  {
+    id: 4,
+    title: "My Portfolio",
+    description: "Portfolio website made using Next.Js, JavaScript and Tailwind CSS",
+    image: "/images/projects/portfolio.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/shahzain29/MyPortfolio",
+    previewUrl: "https://shahzainfolio.netlify.app",
+  },
 ];
   
 
@@ -145,7 +109,7 @@ const ProjectsSection = () => {
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
-              type={project.type}
+              tag={project.tag}
             />
           </motion.li>
         ))}
