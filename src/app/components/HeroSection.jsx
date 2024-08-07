@@ -52,12 +52,12 @@ const HeroSection = () => {
             >
               Hire Me
             </Link>
-               <Link
+               <a
               href="/ShahzainCvrn.pdf"
               className="px-6 inline-block py-3 w-100 sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#187ee4] to-[#a1bed8] hover:bg-slate-200 text-white"
             >
               My CV
-            </Link>
+            </a>
           </div>
         </motion.div>
         <motion.div
