@@ -72,7 +72,7 @@ const TAB_DATA = [
       <div className="flex flex-row justify-evenly">
         {education.map((item, index) => {
           return (
-            <ul className="list-none flex-row">
+            <ul key={`index${item.uni}`} className="list-none flex-row">
               <li>
                 <motion.div
                   key={index}
@@ -102,7 +102,7 @@ const TAB_DATA = [
       <div className="grid grid-cols-3">
         {certifications.map((item, index) => {
           return (
-            <a className="hover:scale-110" href={item.link}>
+            <a key={`index${item.name}`} className="hover:scale-110" href={item.link}>
               <motion.div
                 key={index}
                 variants={animateVariant}
