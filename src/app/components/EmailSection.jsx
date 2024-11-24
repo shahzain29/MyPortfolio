@@ -4,40 +4,20 @@ import GithubIcon from "../../../public/github.png";
 import LinkedinIcon from "../../../public/linkedin.png";
 import Link from "next/link";
 import Image from "next/image";
+import {sendEmail} from '../api/send/route'
+
+import { Resend } from "resend";
+
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-
+ 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
-
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
+    const emailRes=await sendEmail()
+    console.log('emailRes=> ',emailRes)
     };
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
-    }
-  };
+ 
 
   return (
     <section
@@ -83,7 +63,7 @@ const EmailSection = () => {
                 type="email"
                 id="email"
                 required
-                className="bg-gray-200 border-b border-[#33353F] placeholder-[#8c8a8a] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-gray-200 border-b border-[#33353F] placeholder-[#8c8a8a] text-black text-sm rounded-lg block w-full p-2.5"
                 placeholder="username@google.com"
               />
             </div>
@@ -99,7 +79,7 @@ const EmailSection = () => {
                 type="text"
                 id="subject"
                 required
-                className="bg-gray-200 border-b border-[#33353F] placeholder-[#8c8a8a] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-gray-200 border-b border-[#33353F] placeholder-[#8c8a8a] text-black text-sm rounded-lg block w-full p-2.5"
                 placeholder="Say Hi"
               />
             </div>
@@ -113,7 +93,7 @@ const EmailSection = () => {
               <textarea
                 name="message"
                 id="message"
-                className="bg-gray-200 border-b border-[#33353F] placeholder-[#8c8a8a] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-gray-200 border-b border-[#33353F] placeholder-[#8c8a8a] text-black text-sm rounded-lg block w-full p-2.5"
                 placeholder="Let's talk about..."
               />
             </div>
@@ -126,6 +106,7 @@ const EmailSection = () => {
           </form>
         )}
       </div>
+    
     </section>
   );
 };

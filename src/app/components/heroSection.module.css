@@ -1,0 +1,15 @@
+.fadecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .fade-enter, .fade-exit {
+    opacity: 0;
+  }
+  
+  .fade-enter-active, .fade-exit-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+  }
