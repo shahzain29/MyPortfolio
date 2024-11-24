@@ -46,7 +46,6 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl, type,tag 
               <Image alt="Phone Icon" src={PhoneIcon} />
               </div>
             </Link>
-            
           }
         </div>
       </div>
