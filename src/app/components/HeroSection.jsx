@@ -27,14 +27,14 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="lg:py-16 lg:px:5 mb-10">
+    <section className="lg:py-16 lg:px:5">
 
-      <div className="flex flex-row">
+      <div className="flex flex-row" >
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }} 
-          className="place-self-center text-center sm:text-left justify-self-start w-screen h-1/2"
+          className="place-self-center text-center sm:text-left justify-self-start w-screen h-1/2 mt-[100px]"
         >
             <h1 className="mb-4 lg:text-6xl md:text-3xl sm:text-xl lg:leading-normal font-extrabold" >
               <motion.div
@@ -49,7 +49,7 @@ const HeroSection = () => {
               </motion.div>
             </h1>
             <br></br>
-          <div className={'mt-[150px]'}>
+          <div className={'mt-10'}>
             <Link
               href="NewSection"
               className="px-6 inline-block py-3 w-100 md:w-70 sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#187ee4] to-[#a1bed8] hover:bg-slate-200 text-white"
