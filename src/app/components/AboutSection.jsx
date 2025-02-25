@@ -2,7 +2,6 @@
 import React, { useTransition, useState, useRef } from "react";
 import TabButton from "./TabButton";
 import { motion, useInView } from "framer-motion";
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid'
 import Image from "next/image";
 
 const skills = [
