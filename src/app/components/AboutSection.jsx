@@ -3,6 +3,7 @@ import React, { useTransition, useState, useRef } from "react";
 import TabButton from "./TabButton";
 import { motion, useInView } from "framer-motion";
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid'
+import Image from "next/image";
 
 const skills = [
   'React Native',
@@ -27,14 +28,14 @@ const education = [
   { degree: 'BSc Computer Science', uni: 'Comsats university Islamabad', year: '2017-2021' }]
 
 const certifications = [
-  { name: 'JavaScript (Intermediate)', link: "https://www.hackerrank.com/certificates/15832156eba5" },
-  { name: 'Front End Developer (React)', link: "https://www.hackerrank.com/certificates/022fd06ee92f" },
-  { name: 'Modern JavaScript: ES6 Basics', link: "https://www.coursera.org/account/accomplishments/verify/Y5YVE4FFU3PH" },
+  { name: 'JavaScript (Intermediate)', link: "https://www.hackerrank.com/certificates/15832156eba5",path:'/images/javascript.png' },
+  { name: 'Front End Developer (React)', link: "https://www.hackerrank.com/certificates/022fd06ee92f", path:'/images/frontend.png' },
+  { name: 'Modern JavaScript: ES6 Basics', link: "https://www.coursera.org/account/accomplishments/verify/Y5YVE4FFU3PH", path:'/images/modernJSes.png' },
   // { name: 'React - Working with Higher Order Components', link: 'https://www.coursera.org/account/accomplishments/certificate/SFU454AAE6KH' },
-  { name: 'MATLAB OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=3039b51e-3a3b-4e8b-a1ec-6562972b7952&' },
-  { name: 'Image Processing OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=b694b7f3-b076-47a5-ac63-bf09b06db624&' },
-  { name: 'Machine Learning OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=8a641171-34a9-40e0-8a5e-8841d4f58487&' },
-  { name: 'Deep Learning OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=eb0c437d-d83a-460b-a4bf-eac5d4c23a3c&' }
+  { name: 'MATLAB OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=3039b51e-3a3b-4e8b-a1ec-6562972b7952&',path:'/images/matlab.png' },
+  { name: 'Image Processing OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=b694b7f3-b076-47a5-ac63-bf09b06db624&',path:'/images/ImageProcessing.png' },
+  { name: 'Machine Learning OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=8a641171-34a9-40e0-8a5e-8841d4f58487&',path:'/images/MachineLearning.png' },
+  { name: 'Deep Learning OnRamp', link: 'https://matlabacademy.mathworks.com/progress/share/certificate.html?id=eb0c437d-d83a-460b-a4bf-eac5d4c23a3c&',path:'/images/DeepLearning.png' }
 ]
 
 
@@ -58,7 +59,7 @@ const TAB_DATA = [
               animate={"animate"}
               transition={{ duration: 0.5 }}
             >
-              <div className="text-black border-blue-400 border-2 rounded-3xl w-fit py-2 px-4 m-1 ">{item}</div>
+              <div className="  border-blue-400 border-2 rounded-3xl w-fit py-2 px-4 m-1 ">{item}</div>
             </motion.div>
           )
         })}
@@ -72,7 +73,7 @@ const TAB_DATA = [
       <div className="flex flex-row justify-evenly">
         {education.map((item, index) => {
           return (
-            <ul key={`index${item.uni}`} className="list-none flex-row">
+            <div key={index + item.year} className="list-none flex-row">
               <li>
                 <motion.div
                   key={index}
@@ -81,15 +82,15 @@ const TAB_DATA = [
                   animate={"animate"}
                   transition={{ duration: 0.5, delay: index * 0.4 }}
                 >
-                  <div className="text-black font-bold">
-                    {item.degree}
+                  <div className="font-bold">
+                       {item.degree}
                     <p className="ml-5 font-normal">{item.uni}</p>
                     <p className="ml-5 font-normal">{item.year}</p>
                   </div>
 
                 </motion.div>
               </li>
-            </ul>
+            </div>
           )
         })}
       </div>
@@ -99,30 +100,44 @@ const TAB_DATA = [
     title: "Certifications",
     id: "certifications",
     content: (
-      <div className="grid grid-cols-3">
+      <ul className="flex flex-row overflow-y-hidden">
         {certifications.map((item, index) => {
           return (
-            <a key={`index${item.name}`} className="hover:scale-110" href={item.link}>
-              <motion.div
-                key={index}
-                variants={animateVariant}
-                initial="initial"
-                animate={"animate"}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="group flex flex-row justify-between text-black border-blue-400 border-2 rounded-lg w-auto py-2 px-4 m-3 h-fit "
-              >
-                {item.name}
-                <ArrowTopRightOnSquareIcon
-                  className="h-4 w-4 hidden group-hover:block self-center"
-                  strokeWidth={0.5}
-                  fill="#b4b1b0"
+            // <a className="hover:scale-110" href={item.link}>
+            //   <motion.div
+            //     key={index}
+            //     variants={animateVariant}
+            //     initial="initial"
+            //     animate={"animate"}
+            //     transition={{ duration: 0.5, delay: index * 0.2 }}
+            //     className="group flex flex-row justify-between   border-blue-400 border-2 rounded-lg w-auto py-2 px-4 m-3 h-fit "
+            //   >
+            //     {item.name}
+            //     <ArrowTopRightOnSquareIcon
+            //       className="h-4 w-4 hidden group-hover:block self-center"
+            //       strokeWidth={0.5}
+            //       fill="#b4b1b0"
 
-                />
-              </motion.div>
-            </a>
+            //     />
+            //   </motion.div>
+            // </a>
+          
+              <li key={index+item}>
+                <div key={index + item.name} className="w-72 border border-gray-300 rounded-lg overflow-hidden shadow-md text-center bg-white m-4 p-1.5 hover:scale-110">
+                  <a href={item.link} target="_blank">
+                    <div className="w-full flex justify-center items-center py-4">
+                      <div className="w-4/6 relative aspect-video"  >
+                        <Image src={item.path} alt={'image'} height={100} width={300} className="object-cover rounded-md" />
+                      </div>
+                    </div>
+                    <p className="text-base font-semibold text-gray-800 my-4">{item.name}</p>
+                  </a>
+                </div>
+              </li>
+          
           )
         })}
-      </div>
+      </ul>
     ),
   },
 ];
@@ -160,7 +175,7 @@ const AboutSection = () => {
             transition={{ duration: 0.5 }}
             className="col-span-10 place-self-center text-center sm:text-left justify-self-start"
           >
-            <p className="text-base lg:text-lg text-black">
+            <p className="text-base lg:text-lg  ">
               Software Developer and technologist with hands-on development experience from two Software Developmentroles and specialize in Mobile Application development, Front End Development and Back End Development using React Native, ReactJs and NodeJs along a Distinction in MSc Computer Science from University of East London.
             </p>
           </motion.div>

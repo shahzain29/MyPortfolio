@@ -2,10 +2,10 @@
 import React from "react";
 
 
-const NewSection = ()=>{
-    return(
+const NewSection = () => {
+    return (
         <div>new Section</div>
     )
 }
 
-export default NewSEction
+export default NewSection

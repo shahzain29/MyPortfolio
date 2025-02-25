@@ -7,7 +7,7 @@ const variants = {
 };
 
 const TabButton = ({ active, selectTab, children }) => {
-  const buttonClasses = active ? "text-black" : "text-[#ADB7BE]";
+  const buttonClasses = active ? " " : "text-[#ADB7BE]";
 
   return (
     <button onClick={selectTab}>

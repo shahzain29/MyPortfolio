@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="container p-12 flex justify-between">
         <span className="text-blue-500 font-semibold text-2xl">SS</span>
         <div>
-        <p className="text-slate-600">Email: shahzainsohail29@gmail.com</p>
-        <p className="text-slate-600">Mobile: +447459515444</p>
+          <p>Email: shahzainsohail29@gmail.com</p>
+          <p>Mobile: +447459515444</p>
         </div>
       </div>
     </footer>

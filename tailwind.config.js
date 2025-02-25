@@ -18,6 +18,7 @@ module.exports = {
       ...colors,
       primary: colors.purple,
       secondary: colors.pink,
+      foreground:"rgb(var(--foreground-rgb))",
     },
   },
   plugins: [],
