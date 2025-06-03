@@ -36,7 +36,7 @@ const HeroSection = () => {
       transition={{ duration: 0.8 }}
       className="text-4xl md:text-6xl font-bold"
     >
-      Hi, I'm Shahzain Sohail
+      Hi, I&aposm Shahzain Sohail
     </motion.h2>
   
     {/* Container that centers horizontally and fixes height */}
