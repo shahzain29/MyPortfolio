@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -11,7 +12,27 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+
+      <body className={inter.className}>
+        <main className="relative text-white min-h-screen font-sans overflow-hidden">
+
+
+          <header className="fixed top-0 w-full z-10 bg-black/70 backdrop-blur-md p-4 flex justify-between items-center">
+            <h1 className="text-xl font-bold text-blue-500">Shahzain Sohail</h1>
+            <nav className="space-x-6 text-sm">
+              <a href="#about" className="hover:text-blue-400">About</a>
+              <a href="#skills" className="hover:text-blue-400">Skills</a>
+              <a href="#projects" className="hover:text-blue-400">Projects</a>
+              <a href="#contact" className="hover:text-blue-400">Contact</a>
+            </nav>
+          </header>
+          {children}
+          <footer className="text-center py-6 text-sm text-gray-500">
+            © {new Date().getFullYear()} Shahzain Sohail. All rights reserved.
+          </footer>
+        </main>
+      </body>
+
     </html>
   )
 }

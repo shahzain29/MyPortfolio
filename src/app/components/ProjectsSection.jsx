@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
-import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
@@ -43,78 +42,57 @@ const projectsData = [
     previewUrl: "https://shahzainfolio.netlify.app",
   },
 ];
-  
+
 
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
-  };
-
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
-
-  const cardVariants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-  };
+  const projectData = [
+    {
+      image: "/images/projects/huzzle.png",
+      title: "Huzzle",
+      description: "Developed an application for IOS and Android to match students with their career interests increasing job placements.."
+    },
+    {
+      image: "/images/projects/NoxSky.png",
+      title: "Nox-Sky",
+      description: "Created a cross-platform application for astronomy enthusiasts easing them to find people with similar interests."
+    },
+    {
+      image: "/images/projects/Ai.png",
+      title: "Wellness Determination using medical and environmental infromation",
+      description: "Integrated Machine Learning models created using Python with React Native to connect wearable sensors and a smart home wireless network, achieving 98% accuracy in detecting dangerous activities for the user."
+    }
+  ];
 
   return (
-    <section id="projects">
-
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400'>
-          My Projects
-        </span>
-      </h2>
-      <div className="  flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
-        />
-          <ProjectTag
-          onClick={handleTagChange}
-          name="AI"
-          isSelected={tag === "AI"}
-        />
-      </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project, index) => (
-          <motion.li
-            key={index}
-            variants={cardVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
-          >
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
-              tag={project.tag}
-            />
-          </motion.li>
-        ))}
-      </ul>
-    </section>
+    <section id="projects" className="bg-black py-20 px-6">
+    <h3 className="text-3xl font-semibold text-center text-blue-400 mb-12">Projects</h3>
+    <div className="flex flex-col gap-10 max-w-3xl mx-auto">
+      {projectData.map((project, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: index % 2 === 0 ? 400 : -400 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.2 }}
+          viewport={{ once: true, amount: 0.5 }}
+          className="bg-gray-900 border border-blue-500 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300"
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-52 object-cover"
+          />
+          <div className="p-6">
+            <h4 className="text-xl font-bold text-white mb-2">{project.title}</h4>
+            <p className="text-sm text-gray-400">{project.description}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
   );
 };
 
