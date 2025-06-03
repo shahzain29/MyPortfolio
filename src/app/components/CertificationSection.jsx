@@ -1,5 +1,6 @@
 'use Client'
 import React from 'react'
+import { motion } from 'framer-motion';
 
 const CertificationSection = () => {
 
@@ -58,14 +59,25 @@ const CertificationSection = () => {
         //   </section>
 
         <section id="certifications" className="bg-gray-900 py-20 px-6">
-            <h3 className="text-3xl font-semibold text-center text-blue-400 mb-12">Certifications</h3>
+            <h3 className="text-3xl font-semibold text-center text-blue-400 mb-12">
+                Certifications
+            </h3>
             <div className="flex space-x-6 overflow-x-auto pb-4 px-2 scrollbar-thin scrollbar-thumb-blue-400">
                 {certificates.map((cert, index) => (
-                    <div
+                    <motion.div
                         key={index}
-                        className="flex-shrink-0 w-72 bg-gray-800 rounded-2xl shadow-lg border border-blue-500 transition-transform duration-300 hover:scale-95"
+                        className="flex-shrink-0 w-72 bg-gray-800 rounded-2xl shadow-lg border border-blue-500"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            duration: 0.5,
+                            delay: index * 0.1,
+                            type: 'spring',
+                            stiffness: 100,
+                        }}
                     >
-                        <div className="p-4">
+                        <div className="p-4 transition-transform duration-300 hover:scale-95">
                             <img
                                 src={cert.src}
                                 alt={`Certificate ${index + 1}`}
@@ -74,7 +86,7 @@ const CertificationSection = () => {
                             <h4 className="text-lg font-semibold text-white mb-1">{cert.title}</h4>
                             <p className="text-sm text-gray-400">{cert.subtitle}</p>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>
