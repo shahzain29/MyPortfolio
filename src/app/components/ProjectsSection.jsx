@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
@@ -53,46 +54,54 @@ const ProjectsSection = () => {
     {
       image: "/images/projects/huzzle.png",
       title: "Huzzle",
-      description: "Developed an application for IOS and Android to match students with their career interests increasing job placements.."
+      description: "Developed an application for IOS and Android to match students with their career interests increasing job placements..",
+      previewUrl: "https://apps.apple.com/gb/app/huzzle-student-careers/id1558715481"
     },
     {
       image: "/images/projects/NoxSky.png",
       title: "Nox-Sky",
-      description: "Created a cross-platform application for astronomy enthusiasts easing them to find people with similar interests."
+      description: "Created a cross-platform application for astronomy enthusiasts easing them to find people with similar interests.",
+      previewUrl: "https://apps.apple.com/us/app/nox-sky/id1594848791"
     },
     {
       image: "/images/projects/Ai.png",
       title: "Wellness Determination using medical and environmental infromation",
-      description: "Integrated Machine Learning models created using Python with React Native to connect wearable sensors and a smart home wireless network, achieving 98% accuracy in detecting dangerous activities for the user."
+      description: "Integrated Machine Learning models created using Python with React Native to connect wearable sensors and a smart home wireless network, achieving 98% accuracy in detecting dangerous activities for the user.",
+      previewUrl: "https://github.com/shahzain29/NearestNeighbour",
     }
   ];
 
   return (
     <section id="projects" className="py-20 px-6 backdrop-blur-sm">
-    <h3 className="text-3xl font-semibold text-center text-blue-400 mb-12">Projects</h3>
-    <div className="flex flex-col gap-10 max-w-3xl mx-auto">
-      {projectData.map((project, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, x: index % 2 === 0 ? 400 : -400 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.2 }}
-          viewport={{ once: true, amount: 0.5 }}
-          className="bg-gray-900 border border-blue-500 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300"
-        >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-52 object-cover"
-          />
-          <div className="p-6">
-            <h4 className="text-xl font-bold text-white mb-2">{project.title}</h4>
-            <p className="text-sm text-gray-400">{project.description}</p>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </section>
+      <h3 className="text-3xl font-semibold text-center text-blue-400 mb-12">Projects</h3>
+      <div className="flex flex-col gap-10 max-w-3xl mx-auto">
+        {projectData.map((project, index) => (
+          <motion.div
+
+            key={index}
+            initial={{ opacity: 0, x: index % 2 === 0 ? 400 : -400 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true, amount: 0.5 }}
+            className="bg-gray-900 border border-blue-500 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300"
+          >
+            <Link
+              href={project.previewUrl}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-white mb-2">{project.title}</h4>
+                <p className="text-sm text-gray-400">{project.description}</p>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 };
 
