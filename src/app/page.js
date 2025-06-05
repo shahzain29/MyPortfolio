@@ -25,7 +25,7 @@ const Home = () => {
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-[-1] opacity-50"
+        className="absolute bg-transparent top-0 left-0 w-full h-full object-cover z-[-1] backdrop-blur-[2px]"
       >
         <source src="/background3.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -37,7 +37,7 @@ const Home = () => {
       <CertificationSection />
       <EducationSection />
       <ProjectsSection />
-      <EmailSection/>
+      <EmailSection />
     </div>
   );
 }

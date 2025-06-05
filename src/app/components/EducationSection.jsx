@@ -4,7 +4,7 @@ import React from "react";
 
 const EducationSection = () => {
   return (
-    <section id="education" className="py-20 px-6 max-w-3xl mx-auto text-center">
+    <section id="education" className="py-20 px-6  mx-auto text-center backdrop-blur-sm">
       <h3 className="text-3xl font-semibold text-blue-400 mb-10">Education</h3>
       <div className="space-y-6">
         <div>
